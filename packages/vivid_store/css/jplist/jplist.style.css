@@ -1,0 +1,342 @@
+.jplist {
+	width: 100%;
+}
+
+.boxjp{
+	float:left;
+	width:100%;
+}
+
+.panel-full {
+	padding:0px 15px 15px 15px;
+}
+
+/* Button */
+.jplist-drop-down {
+	border-radius: 0px!important;
+	width: 100px!important;
+	margin: 0px 0px 0 0;
+    color: #000;
+    text-shadow: 0 1px 0 #FFF;
+    font-size: 12px;    
+}
+
+.jplist-drop-down .jplist-dd-panel {
+	width: 100px!important;
+	line-height: 28px;
+}
+
+.jplist-drop-down .jplist-dd-panel:after {
+    content: '\25BC';
+    color: #000;
+    right: 10px;
+	z-index:0;
+}
+
+.jplist-panel .jplist-views .jplist-view {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+	border: 1px solid #dbdbdb;
+	border-radius: 0px;
+	background:#fff;
+    color: #000;
+	background:-moz-linear-gradient(top, #fff 0, #efefef 100%);
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(100%, #efefef));
+	background:-webkit-linear-gradient(top, #fff 0, #efefef 100%);
+	background:-o-linear-gradient(top, #fff 0, #efefef 100%);
+	background:-ms-linear-gradient(top, #fff 0, #efefef 100%);
+	background:linear-gradient(to bottom, #fff 0, #efefef 100%)
+}
+
+.jplist-panel button {
+	border-radius: 0px;
+	margin: 0px 0px 0px 10px;
+	
+}
+
+/* Button & Filter */		
+.jplist-panel .text-filter-box {
+	height: 30px;
+	float: left;
+	margin: 0px 0px 0 0;
+	width:100%; 
+	
+}
+
+.jplist-panel .text-filter-box input{
+	border-radius: 0px!important;
+    color: #000;
+}
+
+/* List */
+.list {
+	margin-top: 15px;
+	padding-top: 15px; 
+	border-top: 1px dotted #ccc;
+}
+
+.list-item {
+	margin-bottom:15px;
+}
+
+.item  .thumbnail,
+.list-item  .thumbnail {
+	border-radius: 0px;
+	margin-bottom: 0px;
+}
+
+.item  .thumbnail img ,
+.list-item  .thumbnail img {
+	width: 200px!important;
+	height: 200px!important;
+}
+
+.item  .title {
+	border-top:1px dotted #dbdbdb;
+	padding-top:5px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.item  .thumbnail .original-price,
+.list-item  .thumbnail .original-price { 
+	opacity: .6; 
+	text-decoration: line-through; 
+	display: block; 
+}
+
+.item  .thumbnail .sale-price,
+.list-item  .thumbnail .sale-price { 
+	font-size:20px;
+	font-weight: bold;
+}
+
+.item  .thumbnail .original-price-zero,
+.list-item  .thumbnail .original-price-zero { 
+	opacity: .6; 
+	text-decoration: none; 
+	display: block; 
+}
+
+.item  .thumbnail .align,
+.list-item  .thumbnail .align { 
+	text-align:center;
+	border-top:1px dotted #dbdbdb;
+	padding-top:10px;
+	margin-bottom:5px;
+	margin-top:5px
+}
+
+/* Grid-View */
+.jplist-grid-view .list-item  .thumbnail .caption {
+    padding: 0px;
+}
+
+.jplist-grid-view .list-item  .thumbnail img {
+	margin-top: 0px;
+}
+
+.jplist-grid-view .list-item  .title {
+	border-top:1px dotted #dbdbdb;
+	padding-top:5px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.jplist-grid-view .list-item .desc {
+	display: none;
+}
+
+/* List-View */
+.jplist-list-view .list-item {
+	width: 100%!important;
+}
+
+.jplist-list-view .list-item  .thumbnail {
+	width: 100%!important;
+	display:table;
+}
+
+.jplist-list-view .list-item  .thumbnail img {
+	float:left;
+	margin-top: 0px;
+}
+	
+.jplist-list-view .list-item  .title {
+	margin-left: 200px;
+	margin-bottom:10px;
+	text-decoration: underline;
+}
+
+.jplist-list-view .list-item  .title .EqHeightDiv {
+	height:auto!important;
+}
+
+.jplist-list-view .list-item .desc {
+	display:inherit!important;
+	margin-left: 200px;
+	text-align: justify;
+}
+
+.jplist-list-view .list-item  .price {
+	margin-left: 200px;
+}
+
+.jplist-list-view .list-item .align {
+	float:left;
+	width:100%;
+	text-align:right;
+	border-top:1px dotted #dbdbdb;
+	padding:10px 10px 0 10px;
+	margin-bottom:5px;
+	margin-top:5px
+}
+	
+.jplist-list-view .list-item .btn-add-to-cart span {
+	display:inherit!important;
+}
+	
+.jplist-list-view .list-item .btn-more-details span {
+	display:inherit!important;
+}
+
+.wrap-mobile{ 
+    position: absolute;
+	display:table;
+    width: 100%;
+	left:0;
+    right:0;
+}
+
+.panel-mobile {
+	bottom: 0px;
+	position:fixed;
+	width: inherit; 
+	padding:10px 15px 10px 15px;
+	background-color: #EEE;
+	z-index:1;
+	border-top:1px solid #ccc;
+	
+}
+		
+.jplist-no-results{
+	margin-top: 15px!important;
+	padding:20px 0 20px 0;
+	color:red;
+	text-align:center;
+	border-top: 1px dotted #ccc;
+}
+
+/* For Screen Mobile */
+@media only screen and (max-width: 600px) {
+	
+	
+	.padding-top0{
+		padding-top:0px;
+	}
+	
+	.jplist-drop-down {
+		height:auto;
+	}
+
+	.jplist-drop-down .jplist-dd-panel {
+		width: 100px!important;
+		line-height: 32px;
+	}
+	
+	.jplist-ios-button {
+		width: auto!important;
+		float: right!important;
+		font-size: 12px!important;
+		border-radius: 0px!important;
+		color: #000!important;
+		text-shadow: 0 1px 0 #FFF;
+	}
+	
+	.panel-full {
+		display:none;
+	}
+	
+	.list {
+		margin-top: 0px;
+		padding-top: 10px;
+		border-top: 0px dotted #ccc;
+	}
+	
+	.list-item {
+		width: 100%!important;
+	}
+
+	.jplist-grid-view .list-item .align {
+		text-align:center;
+	}
+
+	.jplist-grid-view .list-item  .title {
+		margin-top: 10px;
+		text-decoration: none;
+	}
+	
+	.jplist-grid-view .list-item  .title .EqHeightDiv {
+		height:auto!important;
+	}
+	
+	.jplist-grid-view .list-item  .price {
+		margin-top: 10px;
+	}
+	
+	.jplist-list-view .list-item  .thumbnail .caption {
+		padding: 0px;
+	}
+
+	.jplist-list-view .list-item  .thumbnail img {
+		float:none;
+	}
+	
+	.jplist-list-view .list-item  .title {
+		margin: auto!important;
+		text-decoration: none;
+		border-top:1px dotted #dbdbdb;
+		padding-top:5px;
+		margin-top: 10px!important;
+		margin-bottom: 10px;
+	}
+
+	.jplist-list-view .list-item .desc {
+		display:none!important;
+	}
+
+	.jplist-list-view .list-item  .price {
+		margin-top: 10px;
+		margin-left: auto!important;
+	}
+	
+	.jplist-list-view .list-item .align {
+		text-align:center;
+	}
+		
+	.jplist-list-view .list-item .btn-add-to-cart span {
+		display:none!important;
+	}
+		
+	.jplist-list-view .list-item .btn-more-details span {
+		display:none!important;
+	}
+		
+	.jplist-no-results{
+		border-top: 0px dotted #ccc;
+		margin-top: 0px!important;
+	}
+	
+}
+
+/* Hide Screen Mobile */
+@media only screen and (min-width:600px) {
+
+	.panel-mobile {
+		display:none;
+	}
+
+}

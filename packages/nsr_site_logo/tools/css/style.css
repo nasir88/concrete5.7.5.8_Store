@@ -1,0 +1,27 @@
+.LogoSite {
+	margin-top: 10px;
+	display:table;
+	padding:5px;
+	border-radius:4px;
+	background-color: #e7e7e7;
+	border: 1px solid #adadad;
+	color: #ff0000;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+.NSR_fileUpload {
+    position: relative;
+    overflow: hidden;
+}
+.NSR_fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}

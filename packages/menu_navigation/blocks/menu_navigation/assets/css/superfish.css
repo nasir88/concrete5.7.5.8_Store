@@ -1,0 +1,226 @@
+#standard {
+  margin: 0;
+  padding: 15px 0 15px 0;
+}
+
+#standard ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  position: relative;
+}
+#standard li {
+  list-style-type: none;
+  margin-left: 1em;
+}
+#standard li a {
+  color:#fff;
+}
+#standard li:before {
+	display: inline-block;
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+    content: "\f105"; /* Insert content that looks like bullets */
+    padding-right: 8px;
+    color: #fff;; /* Or a color you prefer */
+}
+#standard li ul li:before {
+	display: inline-block;
+	font: normal normal normal 16px/1 FontAwesome;
+	font-size: 4px!important;
+	vertical-align: middle;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+    content: "\f0c8"; /* Insert content that looks like bullets */
+    padding-right: 8px;
+    color: #fff;; /* Or a color you prefer */
+}
+#standard li div {
+  padding-left: 1em;
+  position: relative;
+}
+#standard li div::before {
+  content:'';
+  position: absolute;
+  top: 0;
+  left: -2px;
+  bottom: 50%;
+  width: 0.75em;
+  border: 2px solid #000;
+  border-top: 0 none transparent;
+  border-right: 0 none transparent;
+}
+#standard ul > li:last-child {
+  border-left: 2px solid transparent;
+}
+
+
+#single_menu {
+	width:100%;
+	display: table;
+	xxxborder:2px solid #ccc;
+}
+#single_menu .sf-menu, .sf-menu * {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#single_menu .sf-menu li {
+	position: relative;
+}
+#single_menu .sf-menu ul {
+	position: absolute;
+	display: none;
+	top: 100%;
+	left: 0;
+	z-index: 99;
+}
+#single_menu .sf-menu > li {
+	float: left;
+}
+#single_menu .sf-menu li:hover > ul,
+#single_menu .sf-menu li.sfHover > ul {
+	display: block;
+}
+#single_menu .sf-menu a {
+	display: block;
+	position: relative;
+}
+#single_menu .sf-menu ul ul {
+	top: 0;
+	left: 100%;
+}
+
+
+/* Single Menu Navigation ============================================================================= */
+#single_menu .sf-menu ul {
+	xxxbox-shadow: 2px 2px 6px rgba(0,0,0,.2);
+}
+#single_menu .sf-menu a {
+	display:block;
+	zoom: 1; /* IE7 */
+	xxxborder-left: 2px ridge #fff;
+	text-decoration: none;
+	text-transform:uppercase;
+	font-size:11px;
+	color: #fff;
+	padding:16px 20px;
+}
+#single_menu .sf-menu a.nav-first {
+	border-left: 0px solid #fff;
+}
+#single_menu .sf-menu a.nav-last {
+	xxxborder-right: 2px ridge #fff;
+}
+#single_menu .sf-menu li {
+	xxxxbackground: #222; 
+	xxxxwhite-space: nowrap; /* no need for Supersubs plugin */
+	xxxx*white-space: normal; /* ...unless you support IE7 (let it wrap) */
+	word-wrap:break-word;
+	-webkit-transition: background .2s;
+	transition: background .2s;
+}
+#single_menu .sf-menu li.nav-home {
+	zzzborder-radius: 5px 0px 0px 0px;
+}
+#single_menu .sf-menu ul li {
+	background: #222; 
+}
+#single_menu .sf-menu ul ul li {
+	background: #222; 
+}
+#single_menu .sf-menu li:hover,
+#single_menu .sf-menu li.sfHover,
+#single_menu .sf-menu li.nav-selected,
+#single_menu .sf-menu li.nav-path-selected{
+	background: #383838; 
+	/* only transition out, not in */
+	-webkit-transition: none;
+	transition: none;
+}
+
+
+
+/* Single SubMenu Navigation ============================================================================= */
+#single_menu .sf-menu .SubMenu {
+	margin-top:5px;
+	margin-left:3px;
+	width:250px;
+}
+#single_menu .sf-menu .SubMenu a{
+	border: 0px ridge #fff;
+}
+#single_menu .sf-menu .SubMenu a.nav-last {
+	border: 0px ridge #fff;
+}
+#single_menu .sf-menu .SubMenu li {
+	xxborder-top: 2px solid #080808;
+	xxborder-left: 2px solid #080808;
+	xxborder-right: 2px solid #080808;
+}
+#single_menu .sf-menu .SubMenu li.nav-first {
+	xxborder-top: 2px solid #080808;
+	xxborder-left: 2px solid #080808;
+	xxborder-right: 2px solid #080808;
+	zzzborder-radius: 5px 5px 0 0;
+}
+#single_menu .sf-menu .SubMenu li.nav-last {	
+	xxborder-bottom: 2px solid #080808;
+	xxborder-left: 2px solid #080808;
+	xxborder-right: 2px solid #080808;
+	zzzborder-radius: 0 0 5px 5px;
+}
+#single_menu .sf-menu .SubMenu li.nav-first.nav-last { /* if submenu only 1 */
+	xxx-webkit-border-radius: 5px 5px 5px 5px;
+	xxx-moz-border-radius: 5px 5px 5px 5px;
+	xxxborder-radius: 5px 5px 5px 5px;
+	xxx-ms-border-radius: 5px 5px 5px 5px;
+}
+#single_menu .sf-menu .SubMenu li a{
+	padding: 10px 10px;
+}
+
+
+/* Arrows Menu Navigation ============================================================================= */
+#single_menu .sf-arrows .sf-with-ul {
+	padding-right: 2.5em;
+	*padding-right: 1em; /* no CSS arrows for IE7 (lack pseudo-elements) */
+}
+#single_menu .sf-arrows .sf-with-ul:after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	right: 1em;
+	margin-top: -3px;
+	height: 0;
+	width: 0;
+	/* order of following 3 rules important for fallbacks to work */
+	border: 5px solid transparent;
+	xxxborder-top-color: #dFeEFF; /* edit this to suit design (no rgba in IE8) */
+	xxxborder-top-color: rgba(255,255,255,.5);
+	border-top-color: #fff; /* change color - arrows */
+}
+#single_menu .sf-arrows > li > .sf-with-ul:focus:after,
+#single_menu .sf-arrows > li:hover > .sf-with-ul:after,
+#single_menu .sf-arrows > li.nav-path-selected > .sf-with-ul:after,
+#single_menu .sf-arrows > .sfHover > .sf-with-ul:after {
+	xxxborder-top-color: white; /* IE8 fallback colour */
+	border-top-color: #fff; /* change color - arrows */
+}
+#single_menu .sf-arrows ul .sf-with-ul:after {
+	margin-top: -5px;
+	margin-right: -3px;
+	border-color: transparent;
+	border-left-color: #dFeEFF; /* edit this to suit design (no rgba in IE8) */
+	border-left-color: rgba(255,255,255,.5);
+}
+#single_menu .sf-arrows ul li > .sf-with-ul:focus:after,
+#single_menu .sf-arrows ul li:hover > .sf-with-ul:after,
+#single_menu .sf-arrows ul .sfHover > .sf-with-ul:after {
+	background: #fff; 
+	border-left-color: white;
+}

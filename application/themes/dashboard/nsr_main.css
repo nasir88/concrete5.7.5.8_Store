@@ -1,0 +1,40 @@
+/* -- NSR_Form Style -- */
+#NSR_Form {
+	display:table;
+	width: 100%!important;
+    margin-bottom: 10px;
+}
+#NSR_Form .form-label {
+	float: left;
+	padding-top:6px;
+}
+#NSR_Form .form-input {
+	float: left;
+}
+
+#NSR_Form a.myFile {
+	position: relative;
+	overflow: hidden;
+	float: left;
+	clear: left;
+	border: 1px solid #e1e1e1;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	-ms-border-radius: 2px;
+	text-align: center;
+	padding: 18px;
+	font-size: 12px;
+	cursor: pointer;
+}
+#NSR_Form a.myFile input[type="file"] {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	opacity: 0;
+	font-size: 100px;
+	filter: alpha(opacity=0);
+	cursor: pointer;
+	z-index:999;
+}

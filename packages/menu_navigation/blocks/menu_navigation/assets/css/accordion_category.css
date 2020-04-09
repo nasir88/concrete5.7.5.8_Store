@@ -1,0 +1,112 @@
+/** =====================================================================================================*/
+/** THEME - Default
+/** =====================================================================================================*/
+
+/* WRAPPER */
+#accmenu,
+#accmenu ul,
+#accmenu li,
+#accmenu a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 11px;
+  position: relative;
+  text-transform:uppercase;
+  color:#333;
+  text-align:left;
+}
+#accmenu {
+  width: 100%;
+  border-bottom: 0px solid #ccc;
+}
+#accmenu ul.SubMenu {
+  padding-top: 10px;
+}
+#accmenu > ul > li {
+  width: 100%;
+  xxxbackground: #e94f31;
+  xxxbackground: -moz-linear-gradient(#e94f31 0%, #d13516 100%);
+  xxxbackground: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e94f31), color-stop(100%, #d13516));
+  xxxbackground: -webkit-linear-gradient(#e94f31 0%, #d13516 100%);
+  xxxbackground: linear-gradient(#e94f31 0%, #d13516 100%);
+}
+#accmenu > ul > li:hover {
+  xxxbackground: #e84323;
+  xxxbackground: -moz-linear-gradient(#e84323 0%, #c33115 100%);
+  xxxbackground: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e84323), color-stop(100%, #c33115));
+  xxxbackground: -webkit-linear-gradient(#e84323 0%, #c33115 100%);
+  xxxbackground: linear-gradient(#e84323 0%, #c33115 100%);
+}
+#accmenu > ul > li > a {
+  display: block;
+  color: #333;
+  xxxxbackground: url(../img/pattern.png) top left repeat;
+  xxxborder-bottom: 1px solid #ccc;
+  xxxborder-top: none;
+  xxxtext-shadow: 0 -1px 1px #751d0c;
+  border-bottom: 1px dotted #ccc;
+}
+#accmenu > ul > li > a > span {
+  display: block;
+  padding: 10px;
+  padding-right: 26px;
+  xxx-webkit-border-radius: 4px;
+  xxx-moz-border-radius: 4px;
+  xxxborder-radius: 4px;
+}
+#accmenu > ul > li > a:hover {
+  text-decoration: none;
+}
+#accmenu > ul > li > a.nav-last {
+  border-bottom: 0px solid #ccc;
+}
+#accmenu > ul > li.has-sub > a span {
+  background: url(../img/icon_plus.png) 96% center no-repeat;
+  background-size: 10px 10px;
+}
+#accmenu > ul > li.has-sub.active > a span {
+  background: url(../img/icon_minus.png) 96% center no-repeat;
+  background-size: 10px 10px;
+}
+#accmenu ul ul {
+  display: none;
+  xxxbackground: #fff;
+  xxxborder-right: 1px solid #a2a194;
+  xxxborder-left: 1px solid #a2a194;
+}
+#accmenu ul ul li {
+  width: 100%;
+  padding: 0;
+  border-top: none;
+  xxxborder-bottom: 1px solid #ccc;
+  xbackground: #f7f7f7;
+  xbackground: -moz-linear-gradient(#f7f7f7 0%, #ececec 100%);
+  xbackground: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f7f7f7), color-stop(100%, #ececec));
+  xbackground: -webkit-linear-gradient(#f7f7f7 0%, #ececec 100%);
+  xbackground: linear-gradient(#f7f7f7 0%, #ececec 100%);
+}
+#accmenu ul ul li:last-child {
+  padding-bottom: 10px;
+  xxxborder-bottom: none;
+  xxxborder-bottom: 1px solid #ccc;
+}
+#accmenu ul ul a {
+  padding: 4px 10px 4px 25px;
+  display: block;
+  color: #676767;
+  font-size: 11px;
+  font-weight: normal;
+}
+#accmenu ul ul a:before {
+  content: '\00BB';
+  position: absolute;
+  left: 10px;
+  xcolor: #e94f31;
+}
+#accmenu ul ul a:hover {
+  xcolor: #e94f31;
+}
