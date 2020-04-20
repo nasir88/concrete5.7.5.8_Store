@@ -2,8 +2,9 @@
 namespace Concrete\Package\LoginPageBackground\Controller\SinglePage\Dashboard\System\Basics;
 
 use \Concrete\Core\Page\Controller\DashboardPageController;
-use Config;
 use File;
+use Config;
+use Loader;
 
 class LoginPageBackground extends DashboardPageController
 {
@@ -53,5 +54,5 @@ class LoginPageBackground extends DashboardPageController
             $this->set('error', array($this->token->getErrorMessage()));
         }
     }
-
+	
 }

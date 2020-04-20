@@ -4,7 +4,7 @@
 
     <?php  echo $this->controller->token->output('save_settings'); ?>
 
-	<div class="help-block"><?php echo t('The selected image will be stretched to fill the width and height of the login page. For best results select an image that is at least 500px by 500px. Clearing the selected image will restore the default background image.')?></div>
+	<div class="help-block"><?php echo t('The selected image will be stretched to fill the width and height of the login page. For best results select an image that is at least 1200px by 789px. Clearing the selected image will restore the default background image.')?></div>
 
 	<div id="NSR_Form" class="col-md-12 pad0">	
 	
@@ -22,10 +22,9 @@
 
 	</div>
 	
-	
     <div class="ccm-dashboard-form-actions-wrapper">
         <div class="ccm-dashboard-form-actions">
-            <button class="pull-right btn btn-primary" type="submit"><?php  echo t('Save')?></button>
+            <button class="pull-right btn btn-primary" type="submit"><i class="fa fa-save"></i> &nbsp; <?php  echo t('Save')?></button>
         </div>
     </div>
 

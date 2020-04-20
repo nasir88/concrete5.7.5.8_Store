@@ -18,7 +18,7 @@ $dh = Core::make('helper/date');
 	$fsp = new Permissions($fs);
 	if ($fsp->canDeleteFileSet()) { ?>
 	<div class="ccm-dashboard-header-buttons">
-		<button class="btn btn-danger" onclick="deleteFileSet()"><?php echo t('Delete Set')?></button>
+		<button class="btn btn-danger" onclick="deleteFileSet()"><i class="fa fa-trash"></i> &nbsp; <?php echo t('Delete Set')?></button>
 	</div>
 	<br><br>
 	<?php } ?>
@@ -123,8 +123,9 @@ $dh = Core::make('helper/date');
 			
 			<div class="ccm-dashboard-form-actions-wrapper">
 				<div class="ccm-dashboard-form-actions">
-					<a href="<?php echo View::url('/'.$_SESSION['myURLTheme'].'/files/sets')?>" class="btn btn-default pull-left"><?php echo t('Cancel')?></a>
-					<?php echo Core::make("helper/form")->submit('save', t('Save'), array('class' => 'btn btn-primary pull-right'))?>
+					<a href="<?php echo View::url('/'.$_SESSION['myURLTheme'].'/files/sets')?>" class="btn btn-default pull-left"><i class="fa fa-ban"></i> &nbsp; <?php echo t('Cancel')?></a>
+					<?php //echo Core::make("helper/form")->submit('save', t('Save'), array('class' => 'btn btn-primary pull-right'))?>
+					<button type="submit" class="btn btn-primary pull-right" tabindex="-1"><i class="fa fa-save"></i> &nbsp; <?php echo t('Save')?></button>
 				</div>
 			</div>
 	</form>
@@ -229,7 +230,7 @@ $dh = Core::make('helper/date');
 				<div class="input-group width40 mobile-width pull-left mobile-pull-left mobile-marginTop10">
 					<?php echo $form->search('fsKeywords', \Core::make('helper/text')->entities($_REQUEST['fsKeywords']), array('placeholder' => t('File Set Name')), array('class' => 'width400px'))?>
 					<span class="input-group-btn">
-						<button type="submit" class="btn btn-block btn-primary widthAuto" tabindex="-1"><?php echo t('Search')?></button>
+						<button type="submit" class="btn btn-block btn-primary widthAuto" tabindex="-1"><i class="fa fa-search"></i> &nbsp; <?php echo t('Search')?></button>
 					</span>
 				</div>
 				
@@ -280,7 +281,7 @@ $dh = Core::make('helper/date');
 					<?php foreach ($fileSets as $fs) { ?>
 					
 						<div class="ccm-group nsr_group">
-							<a class="ccm-group-inner" href="<?php echo $view->url('/'.$_SESSION['myURLTheme'].'/files/sets/', 'view_detail', $fs->getFileSetID())?>"><i class="fa fa-cubes"></i> <?php echo $fs->getFileSetDisplayName()?></a>
+							<a class="ccm-group-inner" style="padding: 8px 8px 8px 8px;" href="<?php echo $view->url('/'.$_SESSION['myURLTheme'].'/files/sets/', 'view_detail', $fs->getFileSetID())?>"><?php echo $fs->getFileSetDisplayName()?></a>
 						</div>
 					
 					<?php }

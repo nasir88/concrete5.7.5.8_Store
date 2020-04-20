@@ -46,7 +46,7 @@ $myURLTheme = $URLTheme->myURLTheme();
 			<div class="input-group width40 mobile-width pull-left mobile-pull-left mobile-marginTop10">
 				<?php echo $form->search('keywords', $searchRequest['keywords'], array('placeholder' => t('Username or Email')))?>
 				<span class="input-group-btn">
-					<button type="submit" class="btn btn-block btn-primary widthAuto" tabindex="-1"><?php echo t('Search')?></button>
+					<button type="submit" class="btn btn-block btn-primary widthAuto" tabindex="-1"><i class="fa fa-search"></i> &nbsp; <?php echo t('Search')?></button>
 				</span>
 			</div>
 		

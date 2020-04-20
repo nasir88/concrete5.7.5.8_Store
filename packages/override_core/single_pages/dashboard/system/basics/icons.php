@@ -13,16 +13,17 @@ $u=new User();
             $f = File::getByID($faviconFID);
             ?>
             <div class="form-group">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <?php echo $concrete_asset_library->file('ccm-favicon-file', 'faviconFID', t('Choose File'), $f);?>
                 </div>
-                <div class="col-md-6">
-                    <button class="pull-right btn btn-primary" type="submit" ><?php echo t('Save')?></button>
+                <div class="col-md-12">
+                    <button class="pull-right btn btn-primary" type="submit" ><i class="fa fa-save"></i> &nbsp; <?php echo t('Save')?></button>
                 </div>
             </div>
     </fieldset>
 </form>
 
+<?php if($u->isSuperUser()) { ?>
 <div style="height: 100px"></div>
 
 <form method="post" id="iphone-form" class="form-horizontal" action="<?php echo $view->action('update_iphone_thumbnail')?>" >
@@ -35,11 +36,11 @@ $u=new User();
         $f = File::getByID($iosHomeFID);
         ?>
         <div class="form-group">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <?php echo $concrete_asset_library->file('ccm-iphone-file', 'iosHomeFID', t('Choose File'), $f);?>
             </div>
-            <div class="col-md-6">
-                <button class="pull-right btn btn-primary" type="submit" ><?php echo t('Save')?></button>
+            <div class="col-md-12">
+                <button class="pull-right btn btn-primary" type="submit" ><i class="fa fa-save"></i> &nbsp; <?php echo t('Save')?></button>
             </div>
         </div>
     </fieldset>
@@ -47,8 +48,6 @@ $u=new User();
 
 <div style="height: 100px"></div>
 
-
-<?php if($u->isSuperUser()) { ?>
 <form method="post" id="modern-form" class="form-horizontal" action="<?php echo $view->action('update_modern_thumbnail'); ?>" >
     <?php echo $this->controller->token->output('update_modern_thumbnail'); ?>
     <input id="remove-existing-modern-thumbnail" name="remove_icon" type="hidden" value="0" />
@@ -61,10 +60,10 @@ $u=new User();
         $modernThumbBG = strval(Config::get('concrete.misc.modern_tile_thumbnail_bgcolor'));
         ?>
         <div class="form-group">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <?php echo $concrete_asset_library->file('ccm-modern-file', 'modernThumbFID', t('Choose File'), $f);?>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-12">
                 <div class="controls">
 
                     <?php
@@ -74,8 +73,8 @@ $u=new User();
 
                 </div>
             </div>
-            <div class="col-md-2">
-                <button class="pull-right btn btn-primary" type="submit" ><?php echo t('Save')?></button>
+            <div class="col-md-12">
+                <button class="pull-right btn btn-primary" type="submit" ><i class="fa fa-save"></i> &nbsp; <?php echo t('Save')?></button>
             </div>
         </div>
     </fieldset>

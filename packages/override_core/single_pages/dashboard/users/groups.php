@@ -222,8 +222,8 @@ if (isset($group)) { ?>
 
 	<div class="ccm-dashboard-form-actions-wrapper">
         <div class="ccm-dashboard-form-actions">
-            <a href="<?php echo $view->url('/'.$_SESSION['myURLTheme'].'/users/groups')?>" class="btn btn-default pull-left"><?php echo t('Cancel')?></a>
-            <button class="btn pull-right btn-primary" style="margin-left: 10px" type="submit"><?php echo t('Update Group')?></button>
+            <a href="<?php echo $view->url('/'.$_SESSION['myURLTheme'].'/users/groups')?>" class="btn btn-default pull-left"><i class="fa fa-ban"></i> &nbsp; <?php echo t('Cancel')?></a>
+            <button class="btn pull-right btn-primary" style="margin-left: 10px" type="submit"><i class="fa fa-save"></i> &nbsp; <?php echo t('Update Group')?></button>
 
             <?php //if ($u->isSuperUser()) { ?>
                 <?php //print $ih->button_js(t('Delete'), "deleteGroup()", 'right', 'btn-danger');?>

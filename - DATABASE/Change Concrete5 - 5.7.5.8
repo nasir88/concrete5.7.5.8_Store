@@ -1,0 +1,276 @@
+=================================================
+Pembetulan :
+=================================================
+1) bila Right click dan open new pada main menu admin...die terus ke theme element
+2) Butang x untuk alert data tidak berfungsi
+3) apa fungsi Single use codes pada page discount
+
+
+=================================================
+Setting Semula :
+=================================================
+1) add content Delivery Time at checkout.
+2) Remove GlobalArea('Cart Item Section') &&&& templates\itemcart-theme-nsr\view.php
+3) Remove GlobalArea('Cart Item Mobile Section') &&&& templates\itemcart-mobile-theme-nsr\view.php
+4) add logo homepage.
+
+
+
+
+=================================================
+UPGRADE VERSION
+=================================================
+1. Delete old version CORE file 'concrete'
+2. Copy & Replace new version CORE file 'concrete'
+3. Visit the URL 'http://localhost:8181/concrete5.7.5.8/index.php/ccm/system/upgrade'
+4. Click through to 'upgrade' your database to the most recent version.
+
+
+
+=================================================
+DEFAULT PASSWORD (123456)
+=================================================
+$2a$12$xXKbk8wYbKLaTEScWrDxXOIx29keg8Wued4VJ4GbHDLOy6cwHZAWi
+
+
+
+=================================================
+CHANGE DIRECT CORE - BECAUSE CANNOT OVERRIDE 
+=================================================
+- concrete/elements/block_header_view.php - HOLD
+Backup CORE from folder 'backup'
+
+
+
+
+
+
+
+
+
+
+
+
+
+=================================================
+VIVID STORE
+=================================================
+
+-------------------------------------------------------------------------------------------------------------------------
+CHANGE REQUEST :-
+-------------------------------------------------------------------------------------------------------------------------
+CSS :-
+- Application\css\vivid-store.css
+
+JS :-
+- Application\js\vividStoreFunctions.js
+- Application\js\vivid-store.js
+
+Blocks :-
+- Application\blocks\vivid_utility_links\templates\*.php
+- Application\blocks\vivid_product_list\templates\*.php
+- Application\blocks\vivid_product\templates\*.php
+- Application\blocks\vivid_product\controller.php
+
+Elements :-
+- Application\elements\cart_modal.php
+- Application\elements\cart_list.php
+- Application\elements\checkout\shipping_methods.php
+- Application\elements\shipping_method_types\flat_rate\dashboard_form.php
+- Application\elements\shipping_method_types\free_shipping\dashboard_form.php
+
+SinglePage :-
+- Application\single_page\dashboard\store\orders.php
+- Application\single_page\dashboard\store\product.php
+- Application\single_page\dashboard\store\settings.php
+- Application\single_page\dashboard\store\settings\shipping.php
+- Application\single_page\dashboard\store\settings\tax.php
+- Application\single_page\checkout.php
+- Application\single_page\cart.php
+
+Controllers :-
+- Application\controllers\single_page\dashboard\store.php
+- Application\controllers\single_page\dashboard\store\orders.php
+- Application\controllers\single_page\dashboard\store\product.php
+- Application\controllers\single_page\dashboard\store\settings.php
+- Application\controllers\single_page\dashboard\store\settings\shipping.php
+- Application\controllers\single_page\dashboard\store\settings\tax.php
+- Application\controllers\single_page\dashboard\store\reports.php
+- Application\controllers\single_page\checkout.php
+- Application\controllers\single_page\cart.php
+
+
+-------------------------------------------------------------------------------------------------------------------------
+NEW REQUEST :-
+-------------------------------------------------------------------------------------------------------------------------
+====Add New Table DB (\packages\vivid_store\db.xml
+* VividStoreDiscountRules
+* VividStoreDiscountCodes
+* VividStoreBookAddress
+
+
+====Add New Function & Upgrade DB
+CONTROLLERS****\packages\vivid_store\controller.php
+SRC****\packages\vivid_store\src\VividStore\Utilities\Installer.php
+
+
+====Discount <---- (DISCOUNT001)
+ADD****\packages\vivid_store\elements\discount_list.php
+ADD****\packages\vivid_store\single_pages\dashboard\store\discounts.php
+ADD****\packages\vivid_store\controllers\single_page\dashboard\store\discounts.php
+ADD****\packages\vivid_store\src\VividStore\Discount\*
+CONTROLLERS****\packages\vivid_store\controller.php
+SRC****\packages\vivid_store\src\VividStore\Utilities\Installer.php
+SRC****\packages\vivid_store\Src\VividStore\Utilities\Calculator.php
+SRC****\packages\vivid_store\Src\VividStore\Cart\Cart.php
+SRC****\packages\vivid_store\Src\VividStore\Cart\CartTotal.php
+SRC****\Packages\VividStore\Src\VividStore\Discount\DiscountModal.php
+SRC****\packages\vivid_store\src\VividStore\Discount\DiscountRule.php
+
+
+====Payment Method <---- (PAYMENT001)
+ADD****\packages\vivid_store\src\VividStore\Payment\Method\BankTransfer\*
+ADD****\packages\vivid_store\elements\bank_transfer\*
+CONTROLLERS****\packages\vivid_store\controller.php
+SRC****\packages\vivid_store\src\VividStore\Utilities\Installer.php
+SRC****\packages\vivid_store\src\VividStore\Payment\Method\Invoice\InvoicePaymentMethod.php
+SRC****\Concrete\Package\VividStore\Src\VividStore\Order\Order.php
+
+
+====Address Book <---- (ADDRESS001)
+ADD****\packages\vivid_store\src\VividStore\Address\AddressModal.php
+ADD****\packages\vivid_store\elements\address_modal.php
+ADD****\packages\vivid_store\elements\address_list.php
+CONTROLLERS****\packages\vivid_store\controller.php
+SRC****\packages\vivid_store\src\VividStore\Tax\TaxRate.php
+
+
+====Shipping <---- (SHIPPING001)
+SRC****\Package\VividStore\Src\VividStore\Shipping\Method\FlatRateShippingMethod.php
+SRC****\Package\VividStore\Src\VividStore\Shipping\Method\FreeShippingShippingMethod.php
+SRC****\packages\vivid_store\src\VividStore\Utilities\Installer.php
+
+
+====Order <---- (ORDER001)
+SRC****\packages\vivid_store\src\VividStore\Order\Order.php
+SRC****\packages\vivid_store\src\VividStore\Order\OrderItem.php
+
+
+====Member Order <---- (MYORDERS001)
+ADD****\packages\vivid_store\single_pages\order\*
+ADD****\packages\vivid_store\controllers\single_page\order\*
+ADD****\packages\vivid_store\src\VividStore\MyOrder\*
+SRC****\packages\vivid_store\src\VividStore\Utilities\Installer.php
+SRC****\packages\vivid_store\src\VividStore\Utilities\OrderSlip.php
+
+
+
+-------------------------------------------------------------------------------------------------------------------------
+ERROR REQUEST :-
+-------------------------------------------------------------------------------------------------------------------------
+\packages\vivid_store\src\VividStore\Product\Product.php <---- (ERROR001,002,003)
+\packages\vivid_store\src\VividStore\Order\Order.php <---- (ERROR003)
+\packages\vivid_store\src\VividStore\Order\OrderItem.php <---- (ERROR004)
+\packages\vivid_store\src\VividStore\Product\Product.php <---- (ERROR004)
+
+====Error Description
+ERROR001 : Not Display Format Price - SOLVE
+ERROR002 : Not Display Product Dimensions For Variation - SOLVE
+ERROR003 : Call to undefined method Concrete\Package\VividStore\Src\VividStore\Order\Order::getShippingMethodTypeMethod() - SOLVE
+ERROR003 : Not auto update by variation product after place order - SOLVE
+
+
+
+
+
+
+=================================================
+EXAMPLE PHP > SQL
+=================================================
+Alt+0 folds (collapses) all Blocks
+Alt+Shift+0 Unfolds all
+
+throw new Exception($test);
+
+//Select Count
+$v = array($groupName); -- One Array
+$v = array($this->getOrderID(), $ak->getAttributeKeyID()); -- Two Array
+$avID = $db->GetOne("SELECT gID FROM vividstoregroups WHERE groupName = ?", $v);
+if ($avID == 0) {
+   //---
+}
+
+
+//Select All
+public function getAddressByUsers()
+{
+	$db = \Database::connection();
+	$rows = $db->GetAll("SELECT * FROM VividStoreBookAddress WHERE uID=?", $this->uID);
+	return $rows;
+}
+
+
+//Insert
+$vals = array($this->oID); -- One Array
+$vals = array($this->oID,$discount->drName); -- Two Array
+$db->Execute("INSERT INTO vividstoregroups(gID,groupName) VALUES (?,?)", $vals);
+
+
+//Update
+$rows = $db->query("Update VividStoreOrders set cID=? where oID = ?",array($uID, $this->oID));
+return $rows;
+
+
+//Checking permision if a user can edit a page
+	::Single Current Page::
+	$c = Page::getCurrentPage();
+	$page = Page::getByID($c->getCollectionID());
+	$cp = new Permissions($page);
+	echo $cp->canWrite();
+	echo $cp->canRead();
+
+	::Children Current Page::
+	$c = Page::getCurrentPage();
+	$pages = $c->getCollectionChildren();
+	foreach($pages as $p) {
+		$page = Page::getByID($p->getCollectionID());
+		$cp = new Permissions($page);
+		echo $cp->canWrite();
+		echo $cp->canRead();
+	}
+//End
+
+
+//How To Add SinglePage
+1. Create file single page (\application\single_page\account\address.php)
+2. Create file controller (\application\controllers\single_page\account\address.php)
+3. At controller page change path 'namespace'
+4. Go to dashboard -> Pages & Themes -> Single Pages -> Add Single Page ["/account/address"]
+//End
+
+
+
+//Listing
+::Controller::
+$db = Loader::db();
+$calendars = $db->GetAll("SELECT * FROM dsEventCalendar");
+$this->set('calendars', $calendars);
+
+::SinglePage::
+foreach ($calendars as $cal) {
+	echo $cal['calendarID'];
+	echo $cal['title'];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

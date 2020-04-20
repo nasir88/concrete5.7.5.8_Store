@@ -3,99 +3,116 @@ defined('C5_EXECUTE') or die("Access Denied.");
 
 $this->inc('elements/header.php'); 
 
-// first, second, third, fourth, fifth, sixth, seventh, eighth, ninth
+$_1Content = new Area('1');
+$_1ContentBlocks = $_1Content->getTotalBlocksInArea($c);
+$_1ContentDisplay = $_1ContentBlocks > 0 || $c->isEditMode();
 
-$FirstMainContent = new Area('First Main');
-$FirstMainContentBlocks = $FirstMainContent->getTotalBlocksInArea($c);
-$displayFirstMainContent = $FirstMainContentBlocks > 0 || $c->isEditMode();
-
-$SecondMainContent = new Area('Second Main');
-$SecondMainContentBlocks = $SecondMainContent->getTotalBlocksInArea($c);
-$displaySecondMainContent = $SecondMainContentBlocks > 0 || $c->isEditMode();
-
-$ThirdMainContent = new Area('Third Main');
-$ThirdMainContentBlocks = $ThirdMainContent->getTotalBlocksInArea($c);
-$displayThirdMainContent = $ThirdMainContentBlocks > 0 || $c->isEditMode();
-
-$SliderContent = new Area('Slider');
-$SliderContentBlocks = $SliderContent->getTotalBlocksInArea($c);
-$displaySliderContent = $SliderContentBlocks > 0 || $c->isEditMode();
-
-$FeaturesSliderMainContent = new Area('Features Slider Main');
-$FeaturesSliderMainContentBlocks = $FeaturesSliderMainContent->getTotalBlocksInArea($c);
-$displayFeaturesSliderMainContent = $FeaturesSliderMainContentBlocks > 0 || $c->isEditMode();
+$_2Content = new Area('2');
+$_2ContentBlocks = $_2Content->getTotalBlocksInArea($c);
+$_2ContentDisplay = $_2ContentBlocks > 0 || $c->isEditMode();
 
 ?>
 
-<div class="container">
+	<?php
+		//$c = Page::getCurrentPage();
+		//if (!$c->isEditMode()) { 
+		
+		$u = new user();
+		$g = Group::getByName('Administrators');
+		if ($u->inGroup($g)||$u->isSuperUser()) {
+	?>
 	
-		<?php if ($displayFirstMainContent) { ?>
+			<?php
+				$c = Page::getCurrentPage();
+				if (!$c->isEditMode()) { 
+			?>
 		
-			<div class="row marginBot10">
-				<div class="col-md-12">
+				<div style="position: absolute; left: 50%; top: 70px; z-index:2;width: 50%; ">
+					<div style="position: relative; left: -50%;">
+						<div class="ccm-edit-mode-disabled-item">
+							<div style="padding: 10px 0px 10px 0px; font-weight: bold"><?php echo t('Menu disabled in edit mode.')?></div>
+						</div>
+					</div>
+				</div>
+		
+			<?php }  ?>
 				
-					<div class="wrapper-content">
-						<?php $FirstMainContent->display($c); ?>
+	<?php }else{ ?>
+	
+		<?php
+		//$a = new GlobalArea('Navigation Section');
+		//$a->display();
+		?>
+		
+		<!-- Navbar -->
+		<div id="topheader">
+			<nav class="navbar navbar-default navbar-fixed-top">
+				<div class="container">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header page-scroll">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand page-scroll" href="#home">Fame</a>
 					</div>
 					
-				</div>
-			</div>
-			
-		<?php } ?>
-		
-		
-		<?php if ($displaySliderContent) { ?>
-		
-			<div class="row marginBot10">
-				<div class="col-md-12">
-				
-					<?php $SliderContent->display($c); ?>
-				
-				</div>
-			</div>
-			
-		<?php } ?>
-		
-		<?php if ($displaySecondMainContent) { ?>
-		
-			<div class="row marginBot10">
-				<div class="col-md-12">
-				
-					<div class="wrapper-content">
-						<?php $SecondMainContent->display($c); ?>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav navbar-right">
+							<li class="hidden">
+								<a href="#home"></a>
+							</li>
+							<li>
+								<a class="page-scroll" href="#home">Home</a>
+							</li>
+							<li>
+								<a class="page-scroll" href="#product">Product</a>
+							</li>
+							<li>
+								<a class="page-scroll" href="#runner">Runner</a>
+							</li>
+							<li>
+								<a class="page-scroll" href="#contact">Contact</a>
+							</li>
+							<li class="hidden">
+								<a href="#home"></a>
+							</li>
+						</ul>
 					</div>
+					<!-- /.navbar-collapse -->
+				</div>
+				<!-- /.container-fluid -->
+			</nav>
+		</div>
+	<?php } ?>
+	
+	<?php if ($_1ContentDisplay) { ?>
 
-				</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<span id="home"></span>
+				<?php $_1Content->display($c); ?>
 			</div>
-			
-		<?php } ?>
+		</div>
 		
-		<?php if ($displayFeaturesSliderMainContent) { ?>
-		
-			<div class="row marginBot10">
-				<div class="col-md-12">
-				
-					<?php $FeaturesSliderMainContent->display($c); ?>
+	<?php } ?>
 
-				</div>
+	<?php if ($_2ContentDisplay) { ?>
+
+		<div class="row">
+			<div class="col-lg-12">
+				<span id="product"></span>
+				<?php $_2Content->display($c); ?>
 			</div>
-			
-		<?php } ?>
+		</div>
 		
-		<?php if ($displayThirdMainContent) { ?>
-		
-			<div class="row marginBot10">
-				<div class="col-md-12">
-				
-					<div class="wrapper-content">
-						<?php $ThirdMainContent->display($c); ?>
-					</div>
-					
-				</div>
-			</div>
-			
-		<?php } ?>
-		
-</div>
+	<?php } ?>
+	
+	<span id="runner">Runner</span>
+
+	<span id="contact">Contact</span>
 
 <?php  $this->inc('elements/footer.php'); ?>

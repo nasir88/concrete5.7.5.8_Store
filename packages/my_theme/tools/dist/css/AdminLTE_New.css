@@ -4,6 +4,10 @@ Override Core CSS
 ----------------------
  */
  
+p {
+    margin: 0 0 0px;
+}
+ 
 /* -- help-launcher -- */
 div.ccm-notification-help-launcher {
 	top: 80px;
@@ -12,6 +16,10 @@ div.ccm-notification-help-launcher {
 /* -- search fields -- */
 div.ccm-search-fields-row {
     padding-left: 0px;
+}
+
+div.ccm-notification-inner {
+	color: #fff;
 }
 
 div.ccm-search-fields-row div.ccm-search-field-content {

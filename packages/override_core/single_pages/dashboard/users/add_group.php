@@ -248,8 +248,9 @@ $u = new User();
 
 <div class="ccm-dashboard-form-actions-wrapper">
 <div class="ccm-dashboard-form-actions">
-	<a href="<?php echo View::url('/'.$_SESSION['myURLTheme'].'/users/groups')?>" class="btn btn-default pull-left"><?php echo t('Cancel')?></a>
-	<?php echo Loader::helper("form")->submit('add', t('Add Group'), array('class' => 'btn btn-primary pull-right'))?>
+	<a href="<?php echo View::url('/'.$_SESSION['myURLTheme'].'/users/groups')?>" class="btn btn-default pull-left"><i class="fa fa-ban"></i> &nbsp; <?php echo t('Cancel')?></a>
+	<?php //echo Loader::helper("form")->submit('add', t('Add Group'), array('class' => 'btn btn-primary pull-right'))?>
+	<button class="pull-right btn btn-primary" type="submit" ><i class="fa fa-save"></i> &nbsp; <?php echo t('Add Group')?></button>
 </div>
 </div>
 

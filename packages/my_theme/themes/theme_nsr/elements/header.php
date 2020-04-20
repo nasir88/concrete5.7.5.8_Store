@@ -1,95 +1,66 @@
 <?php 
-defined('C5_EXECUTE') or die("Access Denied.");
-$this->inc('elements/header_top.php');
+defined('C5_EXECUTE') or die(_("Access Denied.")); 
+
+//Loader Tools MyTheme
+use Concrete\Package\MyTheme\Src\MyThemesSRC as ThemeSRC;
+$ToolsSitePath = ThemeSRC::PackagePathTools();
+
 ?>
 
-<!-- Utilities -->
-<nav class="navbar navbar-inverse navbar-top" role="navigation">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="navbar-header display-md-width">
-					<button type="button" class="navbar-toggle navbar-toggle-menu" data-toggle="collapse" data-target="#bs-example-navbar-collapse-menu">
-						<span class="fa fa-bars"></span>
-					</button>
-					<?php
-						$a = new GlobalArea('Utility Section');
-						$a->display();
-					?>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<div class="collapse" id="bs-example-navbar-collapse-menu">
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-12">
-					<?php
-						$a = new GlobalArea('Navigation Mobile Section');
-						$a->display();
-					?>	
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="collapse" id="bs-example-navbar-collapse-search">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-4 col-md-6 col-xs-12 pull-right">
-					<?php
-						$a = new GlobalArea('Search Section');
-						$a->display();
-					?>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-</nav>
-<!-- /.Utilities -->
+<html>
+<head>
 
-<!-- Logo -->
-<div class="container marginBot10">
-	<div class="row">
-		<div class="col-xs-12">
-			<?php
-				$a = new GlobalArea('Logo Section');
-				$a->display();
-			?>
-		</div>
-	</div>
-</div>
-<!-- /.Logo -->
+	<?php Loader::element('header_required'); ?>
+	
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	
+	<?php
+		$u = new user();
+		$g = Group::getByName('Administrators');
+		if ($u->inGroup($g)||$u->isSuperUser()) {
+	?> 
+	
+		<!-- CSS : Bootstrap 3.3.6 -->
+		<link rel="stylesheet" href="<?php echo $ToolsSitePath;?>/bootstrap/css/bootstrap.css">
+	
+		<!-- AdminLTE Skins -->
+		<link rel="stylesheet" href="<?php echo $ToolsSitePath;?>/dist/css/skins/_all-skins.min.css">
+		<link rel="stylesheet" href="<?php echo $ToolsSitePath;?>/dist/css/AdminLTE.css">
+		<link rel="stylesheet" href="<?php echo $ToolsSitePath;?>/dist/css/AdminLTE_New.css">
+		
+	<?php 
+		} else {
+	?>
+		
+		<!-- My Theme-->
+		<!-- Bootstrap Core CSS -->
+		<link href="<?php echo $view->getThemePath(); ?>/asset/css/bootstrap.min.css" rel="stylesheet">
+		
+		<!-- Font Awesome CSS -->
+		<link href="<?php echo $view->getThemePath(); ?>/css/font-awesome.min.css" rel="stylesheet">
+		
+		<!-- Animate CSS -->
+		<link href="<?php echo $view->getThemePath(); ?>/css/animate.css" rel="stylesheet">
+		
+		<!-- Custom CSS -->
+		<link href="<?php echo $view->getThemePath(); ?>/css/style.css" rel="stylesheet">
+		<link href="<?php echo $view->getThemePath(); ?>/css/responsive.css" rel="stylesheet">
+    
+		<!-- Colors CSS -->
+		<link type="text/css" href="<?php echo $view->getThemePath(); ?>/css/color/green.css" rel="stylesheet">
 
-<!-- Menu -->
-<div class="display-md-none">
-	<div class="container marginBot10">
-		<div class="row">
-			<div class="col-xs-12 col-sm-12">  
-			
-				<?php
-					$c = Page::getCurrentPage();
-					if (!$c->isEditMode()) { 
-				?>
-				
-					<div id="containerNavSection"> 
-					<?php
-						$a = new GlobalArea('Navigation Section');
-						$a->display();
-					?>
-					</div>
-					<span id="pan" class="pannerNavSection" data-scroll-modifier='-1'><i class="fa fa-fw fa-arrow-circle-left"></i></span>
-					<span id="pan" class="pannerNavSection" data-scroll-modifier='1'><i class="fa fa-fw fa-arrow-circle-right"></i></span>
-				
-				<?php }else{ ?>
-					<div class="ccm-edit-mode-disabled-item">
-						<div style="padding: 40px 0px 40px 0px"><?php echo t('Menu disabled in edit mode.')?></div>
-					</div>
-				
-				<?php } ?>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- /.Menu -->
+		<!-- Custom Fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+		
+		<!-- Modernizer js -->
+		<script src="<?php echo $view->getThemePath(); ?>/js/modernizr.custom.js"></script>
+		
+	<?php 
+		}
+	?>
+	
+</head>
+<body>
+<div class="<?php echo $c->getPageWrapperClass()?>">

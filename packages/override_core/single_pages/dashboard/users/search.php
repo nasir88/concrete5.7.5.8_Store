@@ -313,7 +313,7 @@
 	
 	<div class="ccm-dashboard-form-actions-wrapper">
 		<div class="ccm-dashboard-form-actions">
-			<a href="<?php echo View::url('/'.$_SESSION['myURLTheme'].'/users/search')?>" class="btn btn-default pull-left"><?php echo t('Back To List')?></a>
+			<a href="<?php echo View::url('/'.$_SESSION['myURLTheme'].'/users/search')?>" class="btn btn-default pull-left"><i class="fa fa-arrow-left"></i> &nbsp;  <?php echo t('Back To List')?></a>
 		</div>
 	</div>
 	
