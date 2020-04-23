@@ -26,14 +26,14 @@
 }
 
 .navbar-default .navbar-nav>.active>a {
-    background-color: #e7e7e700;
+    background-color: rgba(0, 0, 0, 0);
     border-bottom: 5px solid #5BB12F;
     border-radius: 0px;
 }
 
 .navbar-default .navbar-nav>.active>a:hover,
 .navbar-default .navbar-nav>.active>a:focus {
-    background-color: #e7e7e700;
+    background-color: rgba(0, 0, 0, 0);
     border-bottom: 5px solid #5BB12F;
 }
 

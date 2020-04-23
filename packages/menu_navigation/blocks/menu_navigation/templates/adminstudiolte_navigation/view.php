@@ -120,7 +120,7 @@ foreach ($navItems as $ni) {
     $name = (isset($translate) && $translate == true) ? t($ni->name) : $ni->name;
 	
 	//Icon Menu Dashboard
-	if ($ni->cID === '154' or $ni->cID === '339') {
+	if ($ni->cID === '154') {
 		$icon = 'fa-copy';
 	} else if ($ni->cID === '157') {
 		$icon = 'fa-users';
@@ -132,6 +132,11 @@ foreach ($navItems as $ni) {
 		$icon = 'fa-gears';
 	}else{
 		$icon = 'fa-circle-o';
+		
+		if ($name === 'Add Pages') {
+			$icon = 'fa-copy';
+		}
+		
 	}
 	
     echo '<a id="' . $ni->cID . '" href="' . $ni->url . '" target="' . $ni->target . '" class="' . $ni->classes . '"><i class="fa ' . $icon . '"></i><span>' . $name . '</span> ';

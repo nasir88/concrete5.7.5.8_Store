@@ -1,33 +1,49 @@
 <?php
 defined('C5_EXECUTE') or die("Access Denied.");
-$this->inc('elements/header.php'); ?>
 
-<div class="container">
+$this->inc('elements/header.php'); 
 
-	<div class="row marginBot10">
-		<div class="col-md-12">
+$this->inc('elements/menu.php'); 
+
+$_1Content = new Area('1');
+$_1ContentBlocks = $_1Content->getTotalBlocksInArea($c);
+$_1ContentDisplay = $_1ContentBlocks > 0 || $c->isEditMode();
+?>
+	
+<?php if ($_1ContentDisplay) { ?>
+
+	<div class="row">
+		<div class="col-lg-12">
+			<?php $_1Content->display($c); ?>
+		</div>
+	</div>
+	
+<?php } ?>
+
+
+	<div class="row">
+		<div class="col-lg-12">
 		
-			<?php
-				$a = new GlobalArea('Section Breadcrumb');
-				$a->display();
+			<ul>
+			<?php 
+				$db = Database::get();
+				$r = $db->Execute("SELECT * FROM VividStoreProducts");
+
+				foreach ($r as $k=>$store_product) {
 			?>
-			
-		</div>
-	</div>
+			<li>
+				<?php  echo $store_product['pName']; ?>
+			</li>
+			<?php 
+				}
+			?>
+			</ul>
 		
-	<div class="row marginBot10">
-		<div class="col-md-12">
 		
-			<div class="wrapper-content">
-				<?php
-					$a = new Area('Main');
-					$a->display($c);
-				?>
-			</div>
-			
 		</div>
 	</div>
 
-</div>
+
+
 
 <?php  $this->inc('elements/footer.php'); ?>

@@ -174,7 +174,6 @@ class Product
             }
         }
     }
-
     public function setInitialVariation()
     {
         if ($this->hasVariations()) {
@@ -194,12 +193,10 @@ class Product
             $this->setVariation(StoreProductVariation::getByOptionItemIDs($optionkeys));
         }
     }
-
     public function getVariation()
     {
         return $this->variation;
     }
-
     public function setCollectionID($cID)
     {
         $this->cID = $cID;
@@ -304,7 +301,6 @@ class Product
     {
         $this->pVariations = (!is_null($bool) ? $bool : false);
     }
-
 	//Edit By Nasir - ERROR004
     /* public function updateProductQty($qty)
     {
@@ -333,21 +329,18 @@ class Product
             $this->save();
         }
     }
-
     public static function getByID($pID)
     {
         $db = Database::connection();
         $em = $db->getEntityManager();
         return $em->find('Concrete\Package\VividStore\Src\VividStore\Product\Product', $pID);
     }
-
     public static function getByCollectionID($cID)
     {
         $db = Database::get();
         $em = $db->getEntityManager();
         return $em->getRepository('Concrete\Package\VividStore\Src\VividStore\Product\Product')->findOneBy(array('cID' => $cID));
     }
-
     public function saveProduct($data)
     {
         if ($data['pID']) {
@@ -397,7 +390,6 @@ class Product
         }
         return $product;
     }
-
     public function getProductID()
     {
         return $this->pID;
@@ -462,7 +454,6 @@ class Product
     {
         return StorePrice::format($this->getActivePrice());
     }
-
     public function getProductSalePrice()
     {
         if ($this->hasVariations() && $variation = $this->getVariation()) {
@@ -488,7 +479,6 @@ class Product
             return StorePrice::format($saleprice);
         }
     }
-
     public function getActivePrice()
     {
         $salePrice = $this->getProductSalePrice();
@@ -509,8 +499,7 @@ class Product
     public function getTaxClass()
     {
         return StoreTaxClass::getByID($this->pTaxClass);
-    }
-    
+    }  
     public function isTaxable()
     {
         if ($this->pTaxable == "1") {
@@ -531,8 +520,6 @@ class Product
     {
         return $this->pShippable;
     }
-
-
     public function getDimensions($whl=null)
     {
         $source = $this;
@@ -561,7 +548,6 @@ class Product
                 break;
         }
     }
-	
     public function getProductWeight()
     {
         if ($this->hasVariations() && $variation = $this->getVariation()) {
@@ -570,7 +556,6 @@ class Product
             return $this->pWeight;
         }
     }
-
     public function getProductImageID()
     {
         if ($this->hasVariations() && $variation = $this->getVariation()) {
@@ -591,13 +576,11 @@ class Product
             return $fileObj;
         }
     }
-
     public function getBaseProductImageID()
     {
         return $this->pfID;
         ;
     }
-
     public function getBaseProductImageObj()
     {
         if ($this->getBaseProductImageID()) {
@@ -605,7 +588,6 @@ class Product
             return $fileObj;
         }
     }
-
     public function hasDigitalDownload()
     {
         return count($this->getProductDownloadFiles()) > 0 ? true : false;
@@ -662,7 +644,6 @@ class Product
     {
         return StoreProductUserGroup::getUserGroupIDsForProduct($this);
     }
-
     public function getProductImage()
     {
         $fileObj = $this->getProductImageObj();
@@ -677,7 +658,6 @@ class Product
             return "<img src='".$fileObj->getThumbnailURL('file_manager_listing')."'>";
         }
     }
-
     public function getProductQty()
     {
         if ($this->hasVariations() && $variation = $this->getVariation()) {
@@ -686,7 +666,6 @@ class Product
             return $this->pQty;
         }
     }
-    
     public function isSellable()
     {
         if ($this->hasVariations() && $variation = $this->getVariation()) {
@@ -702,8 +681,7 @@ class Product
                 }
             }
         }
-    }
-    
+    }   
     public function getProductImages()
     {
         return StoreProductImage::getImagesForProduct($this);
@@ -736,14 +714,12 @@ class Product
     {
         return StoreProductVariation::getVariationsForProduct($this);
     }
-
     public function save()
     {
         $em = Database::get()->getEntityManager();
         $em->persist($this);
         $em->flush();
-    }
-    
+    } 
     public function remove()
     {
         StoreProductImage::removeImagesForProduct($this);
@@ -762,7 +738,6 @@ class Product
             $page->delete();
         }
     }
-    
     public function generatePage($templateID=null)
     {
         $pkg = Package::getByHandle('vivid_store');
@@ -810,8 +785,6 @@ class Product
         $this->save();
     }
     
-    
-
     /* TO-DO
      * This isn't completely accurate as an order status may be incomplete and never change,
      * or an order may be canceled. So at somepoint, circle back to this to check for certain status's
@@ -822,7 +795,6 @@ class Product
         $results = $db->GetAll("SELECT * FROM VividStoreOrderItems WHERE pID = ?", $this->pID);
         return count($results);
     }
-
     public function setAttribute($ak, $value)
     {
         if (!is_object($ak)) {
@@ -871,4 +843,9 @@ class Product
 
         return $av;
     }
+	
+    /* AJAX */
+	 
+	 
+	 
 }

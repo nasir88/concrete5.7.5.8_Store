@@ -1,7 +1,7 @@
 
 	<div class="row">
 		<div class="col-lg-12">
-			<span><?php echo t('Built with <a href="http://www.concrete5.org" class="concrete5">concrete5</a> CMS.')?></span>
+			<br>
 			<span class="pull-right">
 				<?php echo Core::make('helper/navigation')->getLogInOutLink()?>
 			</span>
@@ -22,7 +22,7 @@
 		$g = Group::getByName('Administrators');
 		if ($u->inGroup($g)||$u->isSuperUser()) {
 	?> 
-		
+		<div style='height:100px;'></div>
 	<?php 
 		} else {
 	?>

@@ -62,6 +62,29 @@ class LandingPages extends DashboardPageController
 		
 	}
 
+	public function actionFetch() {
+	
+		//Fetch
+		$db = Loader::db();
+	    $r = $db->Execute("SELECT * FROM nsr_landingpages");
+		
+		$someArray = [];
+		while ($row = $r->FetchRow()) {
+			array_push($someArray, [
+			  'iPK_LandingPages'   => $row['iPK_LandingPages'],
+			  'cName' => $row['cName'],
+			  'iSort' => $row['iSort']
+			]);
+		}
+		
+		//Send response
+		$json = Loader::helper('json');
+		echo $json->encode($someArray);
+		
+		exit;
+
+    }
+
 /* 	public function actionUpdate() {
 	
 		//Declare
@@ -114,7 +137,6 @@ class LandingPages extends DashboardPageController
         $db->Execute("DELETE FROM nsr_landingpages WHERE iPK_LandingPages=?",$vals);
 			
 		//Send response
-
 		$json = Loader::helper('json');
 		$jsonData = array(
 			'status' => $status,
@@ -126,25 +148,30 @@ class LandingPages extends DashboardPageController
 		exit;
 		
 	} */
-
-/*     public function actionFetch() {
 	
-		//Fetch
-		$db = Loader::db();
- 		$vals = array(
-			$this->post('[value1]'),
-			$this->post('[value2]'),
-		);
-	    $r = $db->Execute("SELECT * FROM [table] WHERE [column1] = ? AND [column2] = ?", $vals);
-		
-		if ($r) {
-			$row = $r->FetchRow();
-			echo $row[column name];
-		}
-
-    }	 */
-	
-	
-
-
 }
+	
+/* 	
+<?php 
+$db = Database::get();
+$data = $db->Execute("SELECT * FROM nsr_landingpages");
+
+if ($data->rowCount() > 0) {
+	foreach ($data as $k=>$nsr_landingpages) {
+?>
+		$("#list-empty").hide();
+		
+		optionsContainer.append(optionsTemplate({
+			iID: '<?php  echo $nsr_landingpages['iPK_LandingPages'];?>',
+			cName: '<?php  echo $nsr_landingpages['cName']; ?>',
+			iSort: '<?php  echo $nsr_landingpages['iSort']; ?>'
+		}));
+<?php 
+	} 
+} else {
+?>
+	$("#list-empty").html(msgError);
+	$("#list-empty").show();
+<?php 
+}
+?> */

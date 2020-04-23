@@ -30,7 +30,7 @@ class Controller extends \Concrete\Core\Package\Package
 		$pkg = parent::install();
 
 		//Install Block
-		//BlockType::installBlockTypeFromPackage('landing_pages', $pkg);
+		BlockType::installBlockTypeFromPackage('section_pages', $pkg);
 		
 		//Install Dashboard Pages
         $page1 = SinglePage::add('/dashboard/pages/landing_pages', $pkg);
@@ -38,9 +38,6 @@ class Controller extends \Concrete\Core\Package\Package
 		
 		//$page2 = SinglePage::add('/dashboard/hw_simple_testimonials/addtestimonials', $pkg);
 		//$page2->updateCollectionName(t('Add Testimonial'));
-		
-		//$db = Loader::db();
-		//$db->Execute("INSERT INTO nsr_landingpages (iPK_LandingPages,menuNavigation) VALUES ('1','myLogoMini.png')");
 
 				
 		return $pkg;
